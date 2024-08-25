@@ -23,6 +23,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                order: -1; /* 순서를 변경하여 위로 이동 */
             }
 
             .full-width-image {
@@ -33,6 +34,8 @@
                 display: flex;
                 justify-content: space-around;
                 width: 100%;
+                order: -2; /* 순서를 변경하여 위로 이동 */
+                margin-bottom: 20px; /* 요소들 간의 간격을 위해 여백 추가 */
             }
 
             .link-image {
@@ -42,6 +45,14 @@
             #footer {
                 text-align: center;
                 padding: 10px;
+            }
+
+            /* main-1을 포함한 모든 이미지 위로 이동 */
+            .image-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                order: -3; /* 순서를 변경하여 가장 위로 이동 */
             }
         }
 
@@ -81,23 +92,24 @@
     <div id="main-content">
         <img src="images/logo.png" alt="Logo" class="logo">
 
+        <div class="links">
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="images/link-1.png" alt="Link 1" class="link-image">
+            </a>
+            <a href="https://opensea.io/kr" target="_blank">
+                <img src="images/link-2.png" alt="Link 2" class="link-image">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="images/link-3.png" alt="Link 3" class="link-image">
+            </a>
+        </div>
+
         <div class="main-images">
             <!-- 기존 비디오를 이미지로 대체하고 사이즈를 줄임 -->
             <img src="images/main-1.png" alt="Main Image 1" class="full-width-image reduced-size">
             
             <div class="image-container">
                 <img src="images/main-2.png" alt="Main Image 2" class="full-width-image last-image">
-                <div class="links">
-                    <a href="https://www.youtube.com" target="_blank">
-                        <img src="images/link-1.png" alt="Link 1" class="link-image">
-                    </a>
-                    <a href="https://opensea.io/kr" target="_blank">
-                        <img src="images/link-2.png" alt="Link 2" class="link-image">
-                    </a>
-                    <a href="https://www.instagram.com" target="_blank">
-                        <img src="images/link-3.png" alt="Link 3" class="link-image">
-                    </a>
-                </div>
             </div>
         </div>
     </div>
