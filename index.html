@@ -3,94 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Snot</title>
+    <title>Responsive and Desktop Design</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* 모바일 반응형 디자인 */
+        /* 공통 디자인 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        #header {
+            padding: 20px;
+            text-align: center;
+            background-color: #333;
+            color: white;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        /* 모바일 디자인 (최대 768px) */
         @media (max-width: 768px) {
-            #start-video, #background-video {
-                width: 100%;
-                height: auto;
+            #header {
+                background-color: #0066cc; /* 모바일에서 헤더 색상 변경 */
             }
 
-            .logo {
-                width: 80%;
-                margin: 0 auto;
+            #content {
+                background-color: #fff;
+                color: #333;
+            }
+
+            .mobile-only {
                 display: block;
             }
 
-            .main-images {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                order: -1; /* 순서를 변경하여 위로 이동 */
+            .desktop-only {
+                display: none;
             }
 
-            .full-width-image {
-                width: 90%;
+            .main-images img {
+                width: 100%;
+                margin-bottom: 10px;
             }
 
             .links {
                 display: flex;
-                justify-content: space-around;
-                width: 100%;
-                order: -2; /* 순서를 변경하여 위로 이동 */
-                margin-bottom: 20px; /* 요소들 간의 간격을 위해 여백 추가 */
+                flex-direction: column;
+                align-items: center;
             }
 
             .link-image {
-                width: 20%;
+                margin: 5px 0;
+                width: 60px;
+            }
+        }
+
+        /* 데스크톱 디자인 (768px 이상) */
+        @media (min-width: 769px) {
+            #header {
+                background-color: #333; /* 데스크톱에서 헤더 색상 */
             }
 
-            #footer {
-                text-align: center;
-                padding: 10px;
-            }
-
-            /* main-1을 포함한 모든 이미지 위로 이동 */
-            .image-container {
+            #content {
+                background-color: #e0e0e0;
+                color: #000;
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                order: -3; /* 순서를 변경하여 가장 위로 이동 */
+                justify-content: space-between;
             }
-        }
 
-        /* 배경 비디오를 전체 화면에 맞춤 */
-        #background-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1; /* 다른 컨텐츠보다 뒤에 위치하게 설정 */
-        }
+            .mobile-only {
+                display: none;
+            }
 
-        /* 다른 컨텐츠가 비디오 위에 보이도록 설정 */
-        #main-content {
-            position: relative;
-            z-index: 1;
+            .desktop-only {
+                display: block;
+            }
+
+            .main-images img {
+                width: 45%;
+                margin-right: 2%;
+            }
+
+            .links {
+                display: flex;
+                justify-content: space-between;
+                width: 50%;
+            }
+
+            .link-image {
+                width: 100px;
+                margin: 0 10px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 시작 비디오 -->
-    <video id="start-video" autoplay muted playsinline>
-        <source src="video/start-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div id="header">
+        <h1>Responsive and Desktop Design</h1>
+    </div>
 
-    <!-- 배경 비디오 -->
-    <video id="background-video" autoplay muted loop playsinline>
-        <source src="video/background-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div id="content">
+        <div class="mobile-only">
+            <h2>모바일 전용 콘텐츠</h2>
+            <p>이 부분은 모바일에서만 보입니다.</p>
+        </div>
 
-    <!-- 메인 컨텐츠 -->
-    <div id="main-content">
-        <img src="images/logo.png" alt="Logo" class="logo">
+        <div class="desktop-only">
+            <h2>데스크톱 전용 콘텐츠</h2>
+            <p>이 부분은 데스크톱에서만 보입니다.</p>
+        </div>
+
+        <div class="main-images">
+            <img src="images/main-1.png" alt="Main Image 1">
+            <img src="images/main-2.png" alt="Main Image 2">
+        </div>
 
         <div class="links">
             <a href="https://www.youtube.com" target="_blank">
@@ -103,34 +133,11 @@
                 <img src="images/link-3.png" alt="Link 3" class="link-image">
             </a>
         </div>
-
-        <div class="main-images">
-            <!-- 기존 비디오를 이미지로 대체하고 사이즈를 줄임 -->
-            <img src="images/main-1.png" alt="Main Image 1" class="full-width-image reduced-size">
-            
-            <div class="image-container">
-                <img src="images/main-2.png" alt="Main Image 2" class="full-width-image last-image">
-            </div>
-        </div>
     </div>
 
     <footer id="footer">
-        <p>&copy; 2024 Space Snot. All rights reserved.</p>
+        <p>&copy; 2024 Responsive Design. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const startVideo = document.getElementById('start-video');
-
-            // 비디오가 끝나면 서서히 사라지게 설정
-            startVideo.addEventListener('ended', function() {
-                startVideo.style.transition = 'opacity 1s ease';
-                startVideo.style.opacity = '0';
-                setTimeout(() => {
-                    startVideo.style.display = 'none';
-                }, 1000); // 애니메이션이 완료된 후 비디오를 완전히 숨김
-            });
-        });
-    </script>
 </body>
 </html>
