@@ -3,42 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Background Image</title>
+    <title>Responsive Background and Image</title>
     <style>
-        /* 기본 스타일: 세로가 긴 화면 (background1.png) */
+        /* 기본 스타일: 세로가 긴 화면 (빨간색 배경) */
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('background1.png'); /* 기본 배경 이미지 */
-            background-size: cover; /* 화면을 가득 채우도록 */
-            background-position: center;
+            background-color: red; /* 기본적으로 빨간색 배경 */
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
         }
 
-        h1 {
-            font-size: 2em;
-            color: white;
+        /* 이미지 스타일 */
+        .main-image {
+            width: 50%;
+            max-width: 300px;
+            height: auto;
         }
 
-        /* 가로가 긴 화면 (background2.png) */
+        /* 가로가 긴 화면 (노란색 배경) */
         @media (orientation: landscape) {
             body {
-                background-image: url('background2.png'); /* 가로 화면 배경 이미지 */
-                background-size: cover;
-                background-position: center;
+                background-color: yellow;
             }
 
-            h1 {
-                color: black;
+            /* 노란 배경에서 표시할 이미지로 변경 */
+            .main-image {
+                content: url('w-main-1.png');
             }
         }
     </style>
 </head>
 <body>
-    <h1>Responsive Background</h1>
+    <!-- 기본적으로 세로가 긴 화면에서 표시할 이미지 -->
+    <img src="m-main-1.png" alt="Main Image" class="main-image">
 </body>
 </html>
