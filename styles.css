@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* 스크롤 금지 */
+    cursor: url('images/cursor.png'), auto; /* 커스텀 커서 설정 */
+    font-family: Arial, sans-serif;
+    position: relative;
+    height: 100vh; /* 페이지 높이를 100vh로 설정하여 모든 콘텐츠가 한 화면에 표시되도록 함 */
+    display: flex;
+    flex-direction: column;
+}
+
+#start-video {
+    position: absolute; /* 화면에 고정된 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1000; /* 최상위 레이어로 설정 */
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#background-video {
+    position: absolute; /* 화면에 고정된 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* 배경 비디오를 가장 뒤에 위치시킴 */
+}
+
+#main-content {
+    flex: 1; /* 메인 콘텐츠가 가능한 공간을 모두 차지하게 함 */
+    text-align: center;
+    z-index: 1; /* 메인 콘텐츠가 비디오 위에 표시되도록 함 */
+    color: white; /* 텍스트가 보이도록 기본 텍스트 색상 설정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 콘텐츠를 수직 중앙에 배치 */
+    align-items: center; /* 콘텐츠를 수평 중앙에 배치 */
+}
+
+.logo {
+    width: 70%; /* 로고 크기를 부모 요소 너비의 70%로 설정 */
+    max-width: 50%; /* 로고의 최대 크기를 부모 요소의 50%로 설정 */
+    margin: 90px auto 20px auto; /* 로고를 더 아래로 배치 (위쪽 여백을 90px으로 설정) */
+    display: block;
+}
+
+.main-images {
+    width: 100%;
+    flex-grow: 1; /* 남은 공간을 이미지에 할당 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 이미지를 수직 중앙에 배치 */
+    align-items: center; /* 수평 중앙에 배치 */
+}
+
+.full-width-image {
+    width: 100%; /* 이미지가 부모 요소의 전체 너비를 차지하도록 설정 */
+    height: auto; /* 반응형 크기 조정을 위해 높이는 자동으로 설정 */
+    display: block;
+    margin: 0 auto;
+    object-fit: cover; /* 비디오가 영역을 적절히 덮으면서 비율을 유지하도록 설정 */
+}
+
+.reduced-size {
+    width: 50%; /* 너비를 50%로 줄임 */
+    height: auto; /* 높이는 자동 조정 */
+    margin: 0 auto; /* 중앙 정렬을 위해 margin 설정 */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 페이지의 정중앙에 위치하도록 설정 */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.last-image {
+    width: 100%; /* 이미지가 부모 요소의 전체 너비를 차지하도록 설정 */
+    height: 100vh; /* 화면의 밑끝을 다 차지하도록 설정 */
+    object-fit: cover; /* 이미지 비율을 유지하면서 전체 영역을 덮도록 설정 */
+    position: relative; /* 링크 위치를 조정하기 위해 relative로 설정 */
+}
+
+.links {
+    position: absolute; /* 절대 위치로 설정 */
+    top: 50%; /* main-2 이미지의 중간 위치에 배치 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* 링크 이미지 간의 간격을 30px로 조정 */
+    z-index: 2000; /* main-2 이미지 위에 표시되도록 z-index 설정 */
+}
+
+.link-image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    transform: scale(1.6); /* 이미지 크기를 1.6배로 확대 */
+    transition: transform 0.3s ease; /* 확대 시 애니메이션을 부드럽게 */
+}
+
+/* 이미지에 마우스를 올렸을 때 더 확대되는 효과 추가 */
+.link-image:hover {
+    transform: scale(1.9); /* 마우스를 올리면 1.9배로 확대 */
+}
+
+/* 푸터 스타일링 및 고정 */
+#footer {
+    position: fixed; /* 푸터를 항상 화면 하단에 고정 */
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: green; /* 푸터 배경을 초록색으로 설정 */
+    color: white;
+    z-index: 3000; /* 다른 요소 위에 표시되도록 설정 */
+    height: 10px; /* 푸터의 높이를 설정 */
+    box-sizing: border-box;
+}
+
+/* 반응형 디자인: main-1 및 링크 크기 조정 */
+@media (max-width: 768px) {
+    .logo {
+        width: 500%; /* 반응형에서 로고 크기를 크게 조정 */
+        margin-top: 300px; /* 로고를 더 아래로 배치 */
+    }
+
+    .reduced-size {
+        width: 120%; /* 반응형에서 main-1 크기를 크게 조정 */
+    }
+    
+    .link-image {
+        transform: scale(5); /* 반응형에서 링크 크기를 더 크게 조정 */
+    }
+}
