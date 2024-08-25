@@ -22,8 +22,8 @@
             color: black;
         }
 
-        /* 가로 긴 네모형 (빨간색 배경) */
-        @media (min-aspect-ratio: 16/9) {
+        /* 가로가 세로보다 긴 경우 (빨간색 배경) */
+        @media (orientation: landscape) {
             body {
                 background-color: red;
             }
@@ -38,3 +38,4 @@
     <h1>Responsive Background</h1>
 </body>
 </html>
+
