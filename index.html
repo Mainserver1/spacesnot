@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Background Color</title>
+    <title>Responsive Background Image</title>
     <style>
-        /* 기본 스타일: 세로가 긴 화면 (빨간색 배경) */
+        /* 기본 스타일: 세로가 긴 화면 (background1.png) */
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-color: red;
+            background-image: url('background1.png'); /* 기본 배경 이미지 */
+            background-size: cover; /* 화면을 가득 채우도록 */
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,10 +24,12 @@
             color: white;
         }
 
-        /* 가로가 긴 화면 (노란색 배경) */
+        /* 가로가 긴 화면 (background2.png) */
         @media (orientation: landscape) {
             body {
-                background-color: yellow;
+                background-image: url('background2.png'); /* 가로 화면 배경 이미지 */
+                background-size: cover;
+                background-position: center;
             }
 
             h1 {
