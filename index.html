@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Background Color</title>
     <style>
-        /* 기본 스타일: 세로 긴 네모형 (노란색 배경) */
+        /* 기본 스타일: 세로가 긴 화면 (빨간색 배경) */
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-color: yellow;
+            background-color: red;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,17 +19,17 @@
 
         h1 {
             font-size: 2em;
-            color: black;
+            color: white;
         }
 
-        /* 가로가 세로보다 긴 경우 (빨간색 배경) */
+        /* 가로가 긴 화면 (노란색 배경) */
         @media (orientation: landscape) {
             body {
-                background-color: red;
+                background-color: yellow;
             }
 
             h1 {
-                color: white;
+                color: black;
             }
         }
     </style>
@@ -38,4 +38,3 @@
     <h1>Responsive Background</h1>
 </body>
 </html>
-
