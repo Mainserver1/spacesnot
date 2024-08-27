@@ -34,13 +34,13 @@
 </head>
 <body>
     <div class="image-container">
-        <a href="https://instagram.com/space.snot" target="_blank">
+        <a href="https://x.com/Space_Snot" target="_blank">
             <img id="img1" src="images/m-link-1.png" alt="Link 1">
         </a>
         <a href="https://opensea.io/collection/spacesnot" target="_blank">
             <img id="img2" src="images/m-link-2.png" alt="Link 2">
         </a>
-        <a href="https://x.com/Space_Snot" target="_blank">
+        <a href="https://instagram.com/space.snot" target="_blank">
             <img id="img3" src="images/m-link-3.png" alt="Link 3">
         </a>
     </div>
@@ -48,14 +48,14 @@
     <script>
         function updateImages() {
             if (window.matchMedia("(orientation: landscape)").matches) {
-                document.getElementById('img1').src = 'images/w-link-1.png';
-                document.getElementById('img2').src = 'images/w-link-2.png';
-                document.getElementById('img3').src = 'images/w-link-3.png';
+                document.getElementById('img1').src = 'images/link-1.png';
+                document.getElementById('img2').src = 'images/link-2.png';
+                document.getElementById('img3').src = 'images/link-3.png';
                 document.body.style.backgroundColor = 'yellow';
             } else {
-                document.getElementById('img1').src = 'images/m-link-1.png';
-                document.getElementById('img2').src = 'images/m-link-2.png';
-                document.getElementById('img3').src = 'images/m-link-3.png';
+                document.getElementById('img1').src = 'images/link-1.png';
+                document.getElementById('img2').src = 'images/link-2.png';
+                document.getElementById('img3').src = 'images/link-3.png';
                 document.body.style.backgroundColor = 'red';
             }
         }
